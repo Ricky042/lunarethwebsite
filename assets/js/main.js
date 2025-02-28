@@ -61,30 +61,21 @@
                     visibleClass: 'navPanel-visible'
                 });
 
-        function debounce(func, delay) {
-            let timer;
-            return function(...args) {
-                clearTimeout(timer);
-                timer = setTimeout(() => func.apply(this, args), delay);
-            };
-        }
-        
-        var header = $('#header-wrapper');
-        var lastState = false; // Track the last applied class state
-        var scrollThreshold = 60; // Scroll threshold
-        
-        function handleScroll() {
-            var scrollTop = $window.scrollTop();
-            var shouldBeSmall = scrollTop > scrollThreshold; // True if it should be small
-        
-            // Only update if the state has changed
-            if (shouldBeSmall !== lastState) {
-                lastState = shouldBeSmall; // Update the state
-                header.toggleClass('header-small', shouldBeSmall);
+        // Function to handle sticky navigation bar behavior
+        function stickyNav() {
+            var header = document.querySelector("#header-wrapper");  // Select the header
+            var scrollValue = window.scrollY;  // Get the current scroll position
+
+            // When scroll value exceeds a certain threshold (e.g., 50px), add the shrinking class
+            if (scrollValue > 0) {
+                header.classList.add("header-small");  // Shrink the navbar and adjust padding
+            } else {
+                header.classList.remove("header-small");  // Reset navbar size when scrolling back to the top
             }
         }
 
-        // Apply debounce to prevent excessive execution
-        $window.on('scroll', debounce(handleScroll, 50));
+        // Attach the scroll event listener to the window
+        window.addEventListener("scroll", stickyNav);
+  
 
 })(jQuery);

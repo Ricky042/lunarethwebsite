@@ -1,11 +1,43 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
 
-/*
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Remove the gap between a subdotpoint and a dotpoint for both course-objectives and course-syllabus */
+#course-objectives ul ul li,
+#course-syllabus ul ul li {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 20px; /* Adjust indentation for sublist */
+}
+
+/* Also remove margin from the parent list items */
+#course-objectives ul li,
+#course-syllabus ul li {
+    margin-bottom: 0;
+    padding-left: 0; /* Reset padding for main list items */
+}
+
+/* Ensure proper spacing between weeks and sub-lists */
+#course-objectives p,
+#course-syllabus p {
+    margin-bottom: 0;
+	margin-top: 1em;
+}
+
+/* Additional styles to remove gaps */
+#course-objectives ul,
+#course-syllabus ul {
+    margin: 0;
+}
+
+#course-objectives li,
+#course-syllabus li {
+    margin: 0;
+}
+
+#course-syllabus h3 {
+	margin-top: -2.2em;
+	margin-bottom: 1.2em;
+}
 
 #sidebar-nav {
     list-style: none;
@@ -30,7 +62,7 @@
 #sidebar {
     position: -webkit-sticky;
     position: sticky;
-    top: 225px;
+    top: 150px;
     z-index: 999; /* Ensure the sidebar is above other content */
 }
 
@@ -1996,14 +2028,11 @@ input, select, textarea {
 	background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("images/bg01.png");
 	background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("images/bg01.png");
 	background-color: #f7f7f7;
-	background-position: top left, top left;
+	background-position: top left, top;
 	background-repeat: repeat-x, repeat;
 	background-size: 100% 30em, auto;
     transition: background-size 0.3s ease, padding 0.3s ease;
     padding: 4.5em 0 3em 0; /* Initial padding */
-	transform: translateZ(0);
-  	will-change: background-size, padding;
-
 }
 
 #header-wrapper.header-small {
